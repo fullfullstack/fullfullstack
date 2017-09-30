@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/highlight/github.css') }}" rel="stylesheet">
 </head>
 <body>
    @include('layouts.header')
@@ -20,5 +21,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/highlight.pack.js') }}"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

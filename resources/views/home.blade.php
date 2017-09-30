@@ -1,23 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+<section class="section">
+    <div class="container">
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        @foreach($posts as $post)
+            <nav class="panel">
+                <p class="panel-heading">
+                    <a href="{{ route('post', [$post->slug]) }}">{{ $post->title }}</a>
+                </p>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+                <a class="panel-block">
+                    {{ str_limit($post->body) }}
+                </a>
+
+            </nav>
+        @endforeach
+
     </div>
-</div>
+</section>
 @endsection
